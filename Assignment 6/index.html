@@ -1,0 +1,99 @@
+<!--Jacqueline Justice
+    CSCI 3300-W81 
+    April 14, 2024 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions and Arrays</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Jacqueline's Olympic Judging Calculator</h1>
+    <label>In this program, you will enter the judge's scores from eight countries. This program
+        will remove the highest and the lowest scores and keep the remaining six. The participant's scores
+        will be based on the remaining six values.
+    </label>
+    <form name="judgesScores" action="javascript:getJudgesScores();">
+    <p>Country A Judge: <input type="text" name="judge1score"></p> 
+    <p>Country B Judge: <input type="text" name="judge2score"></p> 
+    <p>Country C Judge: <input type="text" name="judge3score"></p> 
+    <p>Country D Judge: <input type="text" name="judge4score"></p> 
+    <p>Country E Judge: <input type="text" name="judge5score"></p> 
+    <p>Country F Judge: <input type="text" name="judge6score"></p> 
+    <p>Country G Judge: <input type="text" name="judge7score"></p> 
+    <p>Country H Judge: <input type="text" name="judge8score"></p> 
+    <input type="submit" value="Compute Score">
+    </form>
+    
+    <div id="scoreResults"></div>
+    
+    <hr>
+    <footer>
+        Jacqueline Justice, 2024
+    </footer>
+    <script>
+        
+        function getMin(scores){
+            
+            let min = scores[0];
+            for(i = 0; i < scores.length; i++){
+                if(scores[i]< min){
+                    min = scores[i];
+                }
+            }
+            return min;
+
+        }
+        
+
+        function getMax(scores){
+            let max = scores[0];
+            for(i = 0; i < scores.length; i++){
+                if(scores[i]> max){
+                    max = scores[i];
+                }
+            }
+            return max;
+
+        }
+        function getSum(scores){
+            let sum = 0;
+            for(i = 0; i < scores.length; i++){
+                sum += scores[i];
+            }
+            return sum;
+
+        }
+        function unbiasedAverage(scores){
+            let max = getMax(scores);
+            let min = getMin(scores);
+            let sum = getSum(scores);
+
+            let average = ((getSum(scores) - (getMax(scores) + getMin(scores)))/6);
+            return average;
+
+        }
+        function getJudgesScores(){
+          
+          let score1 = parseFloat(document.judgesScores.judge1score.value);
+          let score2 = parseFloat(document.judgesScores.judge2score.value);
+          let score3 = parseFloat(document.judgesScores.judge3score.value);
+          let score4 = parseFloat(document.judgesScores.judge4score.value);
+          let score5 = parseFloat(document.judgesScores.judge5score.value);
+          let score6 = parseFloat(document.judgesScores.judge6score.value);
+          let score7 = parseFloat(document.judgesScores.judge7score.value);
+          let score8 = parseFloat(document.judgesScores.judge8score.value);
+
+          let scores = [score1, score2, score3,score4,score5,score6,score7,score8];
+          let average = unbiasedAverage(scores);
+          if(!isNaN(score1) && !isNaN(score2) && !isNaN(score3) && !isNaN(score4) && !isNaN(score5) && !isNaN(score6) && !isNaN(score7) &&!isNaN(score8)){
+          document.getElementById("scoreResults").innerHTML = "The judges' average score is " + average.toFixed(2) + ".";
+          }else{
+            document.getElementById("scoreResults").innerHTML = "Enter valid numbers.";
+          }
+        }
+    </script>
+</body>
+</html>
