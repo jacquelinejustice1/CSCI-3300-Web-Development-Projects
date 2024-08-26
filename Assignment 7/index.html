@@ -1,0 +1,184 @@
+<!--Jacqueline Justice
+    CSCI 3300-W81 
+    April 28, 2024 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Applications</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Jacqueline's Book App</h1>
+<div id="app">
+    <p>
+    <label>Title: </label>
+    <input type="text" id="title">
+    <label>Author: </label>
+    <input type="text" id="author">
+    </p>
+    <p>
+    <label>Subject: </label>
+    <input type="text" id="subject">
+    </p>
+    <button v-on:click="showInputs">Submit</button>
+    <div>
+    <p>
+        <label>Title: </label>
+        {{title}}
+    </p>
+    <p>
+        <label>Author: </label>
+        {{author}}
+    </p>
+    <p>
+        <label>Subject: </label>
+        {{subject}}
+    </p>
+    </div>
+</div>
+<hr>
+<h1>Jacqueline's Distance Conversion Application</h1>
+<div id="distance">
+    <p>
+    <label>Enter a distance: </label>
+   
+    <input type="text" v-model="firstDistance" v-on:input="convertDistance">
+    <select v-model="fromUnit" v-on:change="convertDistance">
+        <option value="centimeters">Centimeters</option>
+        <option value="meters">Meters</option>
+        <option value="kilometers">Kilometers</option>
+        <option value="inches">Inches</option>
+        <option value="feet">Feet</option>
+        <option value="miles">Miles</option>
+    </select>
+    </p>
+    <label>Selected the desired unit of converted distance:</label>
+    <p>
+        <select v-model="toUnit" v-on:change="convertDistance">
+            <option value="centimeters">Centimeters</option>
+            <option value="meters">Meters</option>
+            <option value="kilometers">Kilometers</option>
+            <option value="inches">Inches</option>
+            <option value="feet">Feet</option>
+            <option value="miles">Miles</option>
+        </select>
+    </p>
+    <div >
+        
+        <label>Converted Distance:</label>
+        {{distanceConverted}} 
+    </div>
+
+</div>
+    
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    title: '',
+                    author: '',
+                    subject: ''
+                  
+                };
+            },
+            methods:{
+                showInputs(){
+                 if(!isNaN(this.title) && !isNaN(this.author) && !isNaN(this.subject))
+                   this.title = document.getElementById("title").value;
+                   this.author = document.getElementById("author").value;
+                   this.subject = document.getElementById("subject").value;
+                   
+                }
+            }
+        }).mount('#app');
+
+       
+    </script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                firstDistance: '',
+                distanceConverted: '',
+                fromUnit: 'meters',
+                toUnit: 'meters'
+            };
+            },
+            methods:{
+               convertDistance(){
+                  this.distanceConverted = "Enter a distance to convert."
+                  this.firstDistance = parseFloat(this.firstDistance);
+                  
+                  if(!isNaN(this.firstDistance) || this.firstDistance <= 0){
+                     let distanceMeters = this.convertToMeters(this.firstDistance, this.fromUnit)
+                     console.log(this.distanceMeters);
+                     this.distanceConverted = this.convertFromMeters(distanceMeters,this.toUnit)+ " " + this.toUnit;
+                     console.log(this.distanceConverted);
+                  }else{
+                    this.distanceConverted = "Invalid Input"
+                  }
+                
+               },
+               convertToMeters(distance,unit){
+                if(distance > 0){
+                  if(unit === 'centimeters'){
+                    return (distance / 100).toFixed(3);
+                  }
+                  if(unit === 'meters'){
+                    return distance;
+                  }
+                  if(unit === 'kilometers'){
+                    return (distance * 1000).toFixed(3);
+                  }
+                  if(unit === 'inches'){
+                    return (distance * 0.0254).toFixed(3);
+                  }
+                  if(unit === "feet"){
+                    return (distance * 0.3048).toFixed(3);
+                  }
+                  if(unit === "miles"){
+                    return (distance * 1609.34).toFixed(3);
+                  }
+                }else{
+                    this.distanceConverted = "Invalid Input"
+                }
+                
+               },
+               convertFromMeters(distance,unit){
+                if(distance > 0){
+                if(unit === 'centimeters'){
+                    return (distance * 100).toFixed(3);
+                }
+                if(unit === 'meters'){
+                    return distance;
+                }
+                if(unit === 'kilometers'){
+                    return (distance / 1000).toFixed(3);
+                }
+                if(unit === 'inches'){
+                    return (distance / 0.025).toFixed(3);
+                }
+                if(unit === 'feet'){
+                    return (distance / 0.3048).toFixed(3);
+                }
+                if(unit === 'miles'){
+                   return (distance / 1609.34).toFixed(10);
+                }
+            }else{
+                this.distanceConverted = "Invalid Input";
+            }
+               }
+            }
+        }).mount('#distance');
+
+    </script>
+    <hr>
+    <footer>
+        Jacqueline Justice, 2024
+    </footer>
+</body>
+
+</html>
