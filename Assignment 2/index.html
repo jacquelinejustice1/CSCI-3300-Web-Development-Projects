@@ -1,0 +1,35 @@
+<!--Jacqueline Justice
+    CSCI 3300-W81
+    Assignment 2
+    February 11,2024
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacqueline's Image Display Application</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        //function for Question 2: getImage()
+        function getImage(){
+            let image= '<img src="images/newyork.jpg" alt="New YorK Skyline">';
+            document.getElementById("myimage").innerHTML = image;
+        }
+    </script>
+
+</head>
+<body class="center">
+   <!--Question 2: Display Image-->
+<h1>Jacqueline's Image Display Application</h1>
+<label>My Image</label>
+<div id="myimage"></div>
+    <form name="image" action="javascript:getImage();">
+        <input type="submit" name="myImage">
+    </form>
+<hr>
+    <footer>
+        Jacqueline Justice, 2024
+    </footer>
+</body>
+</html>
