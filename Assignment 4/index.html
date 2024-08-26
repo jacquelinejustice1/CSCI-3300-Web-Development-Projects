@@ -1,0 +1,110 @@
+<!--Jacqueline Justice
+    CSCI 3300-W81 
+    March 17, 2024 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        //function to find the secret word
+        function getSecretWord(){
+            let secretWord = "noodle";
+            let image= '<img src="images/noodle.jpg" alt="Bowl of Noodles">';
+
+            let guess = prompt("Enter the secret word.");
+            while(guess !== secretWord){
+                guess = prompt("Enter the secret word.");
+            }
+            
+            document.getElementById("image").innerHTML = image;
+            
+        }
+        //function for the grocery list
+        function startGroceryList(){
+            let item;
+            let price;
+            let done = 'done';
+            let table = '<table><tr><th>Item</th><th>Price</th></tr>';
+            let totalPrice = 0;
+
+            while(item !== done.toLowerCase()){
+                item = prompt("Enter an item for the grocery list.");
+                if(item !== done.toLowerCase()){
+                price = parseFloat(prompt("Enter the price of the item."));
+                
+                    if(!isNaN(price)){
+                        table += '<tr><td>' + item + '</td><td>' + price.toFixed(2) + '</td></tr>';
+                        totalPrice += price;
+                    } else {
+                        alert("Invalid price entered. Please enter a valid number.");
+                    }
+                    
+                }
+            }
+            table += '</table>';
+            document.getElementById("groceryTable").innerHTML = table;
+            document.getElementById("total").innerHTML = "The total of the list is $" + totalPrice.toFixed(2) +".";
+
+        }
+        //function for counting the amount of times dog and cat are entered
+        function dogAndCatCounter(){
+            let cat = 'cat';
+            let dog = 'dog';
+            let element;
+            let done = 'done';
+            let dogCounter = 0;
+            let catCounter = 0;
+
+            while(element !== done){
+                element = prompt("Enter element to count.");
+                if(element.toLowerCase().includes(dog)){
+                    dogCounter++;
+                    //console.log(dogCounter);
+                }
+                if(element.toLowerCase().includes(cat)){
+                    catCounter++;
+                   // console.log(catCounter);
+                }
+
+            }
+            //dog is not working properly
+            document.getElementById("finalNumDog").innerHTML = "You typed in 'dog' " + (dogCounter) + " times and 'cat' " + (catCounter) + " times.";
+
+        }
+  
+    </script>
+</head>
+<body>
+    <!--Secret Message Program-->
+    <h1>Jacqueline's Secret Message Program</h1>
+    <form name="secretWord" action="javascript:getSecretWord();">
+    <input type="submit" value="Click here to view the secret mesage">
+   </form>
+   <div id="image"></div>
+    <hr>
+
+    <!--Grocery Shopping List Program-->
+    <h1>Jacqueline's Grocery Shopping List</h1>
+    <form name="groceryList" action="javascript:startGroceryList();">
+        <input type="submit" value="Click here to enter the grocery list.">
+    </form>
+    <div id="groceryTable"></div>
+    <div id="total"></div>
+    <hr>
+
+    <!--Dog and Cat Counter Program-->
+    <h1>Jacqueline's Dog and Cat Counter</h1>
+    <form name="counter" action="javascript:dogAndCatCounter();">
+        <input type="submit" value="Click here to start the count.">
+    </form>
+    <div id="finalNumDog"></div>
+    <div id="finalNumCat"></div>
+    <hr>
+    <footer>
+        Jacqueline Justice, 2024
+    </footer>
+</body>
+</html>

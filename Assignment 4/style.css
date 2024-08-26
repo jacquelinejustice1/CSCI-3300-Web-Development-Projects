@@ -1,0 +1,26 @@
+body{
+    background-color: #FFF0F5;
+    color: #DC143C;
+    font-family:'Courier New', Courier, monospace;
+    letter-spacing: 10px;
+    text-align: center;
+}
+h1{
+    color: #DC143C;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+}
+input[type=submit]{
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: #DC143C;
+    text-align: center;
+}
+table{
+    color: #DC143C;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+}
+th{
+    text-align: center;
+}
