@@ -1,0 +1,124 @@
+/*hobbies on the homepage*/
+#hobbies{
+    color: beige;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 4px;
+    display:block;
+    background-color:coral;
+}
+/*things i love on the homepage*/
+#thingsilove{
+    color: beige;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 4px;
+    display:block;
+    background-color:cadetblue;
+}
+/*carrer on the homepage*/
+#career{
+    color: beige;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 4px;
+    display:block;
+    background-color:darkolivegreen;
+}
+/*all paragraphs on the homepage*/
+p{
+    font-size:large;
+    font-family: 'Courier New', Courier, monospace;
+}
+/*all unordered lists*/
+ul{
+    color:black;
+    font-size:large;
+    font-family: 'Courier New', Courier, monospace;
+}
+/*quote title on the homepage*/
+#quote{
+    color: beige;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 4px;
+    display:block;
+    background-color:darkmagenta;
+}
+/*the actual quote on the homepage*/
+#quoteblock{
+    font-size:large;
+    font-family: 'Courier New', Courier, monospace;
+}
+/*the links on the homepage*/
+#link{
+    color: beige;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 4px;
+    display:block;
+    background-color:crimson;
+}
+/*address title on the homepage*/
+#wherefrom{
+    color: beige;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 4px;
+    display:block;
+    background-color:darkslateblue;
+}
+/*the address on the homepage*/
+#address{
+    font-size:large;
+    font-family: 'Courier New', Courier, monospace;
+}
+/*resizing the image on the places homepage*/
+#newyorkimage{
+    width: 400px;
+}
+/*resizing the image on the pets homepage*/
+#cat{
+    width: 400px;
+}
+/*editting the return homepage link*/
+#homepagereturn{
+    font-size:medium;
+}
+/*places header on the places homepage*/
+#places{
+    color: beige;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 4px;
+    display:block;
+    background-color:cadetblue;
+}
+/*hobbies header on the hobbies homepage*/
+#hobbies2{
+    color: beige;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 4px;
+    display:block;
+    background-color:coral;
+}
+/*pet header on the pet homepage*/
+#pets{
+    color: beige;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 4px;
+    display:block;
+    background-color:darkslategrey;
+}
+/*school header on the school page*/
+#school{
+    color: beige;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 4px;
+    display:block;
+    background-color:darkolivegreen;
+}
+/*the return link on all four homepages*/
+#return{
+    font-size:medium;
+    font-family: 'Courier New', Courier, monospace;
+}
+/*ordered list on the pets homepage*/
+ol{
+    color:black;
+    font-size:large;
+    font-family: 'Courier New', Courier, monospace;
+}
