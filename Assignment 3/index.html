@@ -1,0 +1,167 @@
+<!--Jacqueline Justice
+    CSCI 3300-W81 
+    February 28, 2024 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditionals</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        //Function for question 1 that returns the smallest of 3 numbers
+        function getSmallestNum(){
+            let num1 = parseFloat(document.smallestNumber.num1.value);
+            let num2 = parseFloat(document.smallestNumber.num2.value);
+            let num3 = parseFloat(document.smallestNumber.num3.value);
+
+            if(num1 < num2 && num1 < num3){
+                document.getElementById("smallestResult").innerHTML = "The first number ("+num1+") is the smallest value.";
+            }
+            if(num2 < num1 && num2 < num3){
+                document.getElementById("smallestResult").innerHTML = "The second number ("+num2+") is the smallest value.";
+            }
+            if(num3 < num1 && num3 < num2){
+                document.getElementById("smallestResult").innerHTML = "The third number ("+num3+") is the smallest value.";
+            }
+            if(num1 < num2 && num1 == num3 || num1 < num3 && num1 ==num2){
+                document.getElementById("smallestResult").innerHTML = "The smallest number is "+num1+".";
+            }
+            if(num2 < num1 && num2 == num3 || num2 < num3 && num2 == num1){
+                document.getElementById("smallestResult").innerHTML = "The smallest number is "+num2+".";
+            }
+            if(num3 < num2 && num3 == num1 || num3 < num1 && num3 == num2){
+                document.getElementById("smallestResult").innerHTML = "The smallest number is "+num3+".";
+            }
+            if(num1 == num3 && num1 == num2){
+                document.getElementById("smallestResult").innerHTML = "The first number ("+num1+") is the smallest value.";
+            }
+        }
+        //function for question 2 that displays the middle of 3 numbers when entered
+        function getMiddleNum(){
+            let num1 = parseFloat(document.middleNumber.num1.value);
+            let num2 = parseFloat(document.middleNumber.num2.value);
+            let num3 = parseFloat(document.middleNumber.num3.value);
+
+            if(num1 < num3 && num1 > num2 || num1 > num3 && num1 < num2){
+                document.getElementById("middleResult").innerHTML = "The first number ("+num1+") is the middle value.";
+            }
+            if(num2 < num1 && num2 > num3 || num2 < num3 && num2 > num1){
+                document.getElementById("middleResult").innerHTML = "The second number ("+num2+") is the middle value.";
+            }
+            if(num3 > num2 && num3 < num1 || num3 > num1 && num3 < num2){
+                document.getElementById("middleResult").innerHTML = "The third number ("+num3+") is the middle value.";
+            }
+            //if theres 2 of the same number as well
+            if(num1 == num2 && num1 == num3){
+                document.getElementById("middleResult").innerHTML = num1;
+            }
+            if(num2 < num1 && num2 == num3 || num2 < num3 && num2 == num1){
+                document.getElementById("middleResult").innerHTML = "There is no middle value.";
+            }
+            if(num3 < num2 && num3 == num1 || num3 < num1 && num3 == num2){
+                document.getElementById("middleResult").innerHTML = "There is no middle value.";
+            }
+            if(num1 < num2 && num1 == num3 || num1 < num3 && num1 ==num2){
+                document.getElementById("middleResult").innerHTML = "There is no middle value.";
+            }
+        }
+        //function for question 3 that displays what type of value is entered
+        function getValue(){
+            let anything = parseFloat(document.anything.anyNum.value);
+
+            if(anything % 2 == 0){
+                document.getElementById("anythingResult").innerHTML = "Even";
+            }
+            if(anything % 2 != 0){
+                document.getElementById("anythingResult").innerHTML = "Odd";
+            }
+            if(anything % 1 != 0){
+                document.getElementById("anythingResult").innerHTML = "Float";
+            }
+            if(isNaN(anything)){
+                document.getElementById("anythingResult").innerHTML = "None of the Above";
+            }
+            
+        }
+        //function for question 4 that displays the integer closest to the float entered
+        function nearestInt(){
+            let numFloat = parseFloat(document.nearestInt.integer.value);
+            let numInt = parseInt(document.nearestInt.integer.value);
+
+            if(numFloat <= (numInt + 0.5)){
+                document.getElementById("results").innerHTML = "The nearest integer is " + numInt;
+            }
+            else{
+                document.getElementById("results").innerHTML = "The nearest integer is " + (numInt + 1);
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <!--Question 1-->
+    <h1>Jacqueline's Smallest of Three Numbers</h1>
+<form name="smallestNumber" action="javascript:getSmallestNum();">
+<p>
+    <label>Enter the first number</label>
+    <input type="text" name="num1">
+</p>
+<p>
+    <label>Enter the second number</label>
+    <input type="text" name="num2">
+</p>
+    <label>Enter the third number</label>
+    <input type="text" name="num3">
+<p>
+    <input type="submit" value="Determine the smallest number.">
+</p>
+</form>
+<div id="smallestResult"></div>
+<hr>
+<!--Question 2-->
+<h1>Jacqueline's Middle of Three Numbers</h1>
+<form name="middleNumber" action="javascript:getMiddleNum();">
+    <p>
+          <label>Enter the first number</label>
+         <input type="text" name="num1">
+     </p>
+     <p>
+        <label>Enter the second number</label>         
+        <input type="text" name="num2">
+     </p>
+        <label>Enter the third number</label>
+        <input type="text" name="num3">
+    <p>
+        <input type="submit" value="Determine the middle number.">
+    </p>
+   </form>
+        <div id="middleResult"></div>
+<hr>
+<!--Question 3-->
+<h1>Jacqueline's Even, Odd, Float, or None of the Above</h1>
+<form name="anything" action="javascript:getValue();">
+ <p>
+    <label>Enter anything:</label>
+    <input type="text" name="anyNum">
+</p>
+    <input type="submit" value="Determine the type of number."> 
+</form>
+    <div id="anythingResult"></div>
+<hr>
+<!--Question 4-->
+<h1>Jacqueline's Nearest Integer</h1>
+<form name="nearestInt" action="javascript:nearestInt();">
+<p>
+    <label>Enter the first number:</label>
+    <input type="text" name="integer">
+</p>
+     <input type="submit" value="Determine the nearest integer.">
+</form>
+    <div id="results"></div>
+<hr>
+    <footer>
+        Jacqueline Justice, 2024
+    </footer>
+</body>
+</html>

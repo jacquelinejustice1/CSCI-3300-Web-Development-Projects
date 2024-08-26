@@ -1,0 +1,37 @@
+/*Jacqueline Justice
+    CSCI 3300-W81 
+    February 28, 2024*/
+body{
+    background-color: #483D8B;
+    text-align: center;
+}
+p{
+    color: #F0FFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+label{
+    color: #F0FFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+h1{
+    color: #F0FFFF;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+footer{
+    color: #F0FFFF;
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+div{
+    color: #F0FFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+input[type=submit]{
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F0FFFF;
+}
