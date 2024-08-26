@@ -1,0 +1,144 @@
+<!--Jacqueline Justice
+    CSCI 3300-W81 
+    March 31, 2024 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops, but more advanced</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        
+        function numberExamTool(){
+            let num;
+            let numTotal = 0;
+            let numTotalFP = 0;
+            let count = 0;
+            let FPcount = 0;
+            let message = "";
+            
+            while(true){
+                num = prompt("Enter values:");
+                
+                //if no value is entered
+                if(num === null){
+                message = "No values were entered.";
+                } else {
+                    //converting to num
+                    num = parseFloat(num);
+                    //exit
+                    if(num === -1){
+                    break;
+                }
+                //making sure a number is entered 
+                if(isNaN(num)){
+                 message += " No values were entered.";
+
+                    } else {
+                        if(Number.isInteger(num)){
+                        if(num % 2 === 0){
+                        //if num is even
+                         message += num.toFixed(2) + " is an even value.<br>";
+                    
+                        } else {
+                        //otherwise odd
+                        message +=  num.toFixed(2) + " is an odd value.<br>";
+                        }
+                    }else {
+                        //if the number is a floating point value
+                            message += num.toFixed(2) + " is a floating-point value.<br>";
+                            //seperately counting the floating point values
+                            FPcount++;
+                            numTotalFP += num;
+                        } 
+                        //adding all of the numbers for the total and count
+                        numTotal += num;
+                        count++;
+                    }
+                 }
+            }
+            let average = numTotal / count;
+            let averageFP = numTotalFP / FPcount;
+            document.getElementById("averageTotal").innerHTML = "The total is " + numTotal.toFixed(2) + ", and the average is " + average.toFixed(2) +
+            ". The sum of only the floating point values is " + numTotalFP.toFixed(2) + ", with an average of " + averageFP.toFixed(2);
+            document.getElementById("numResult").innerHTML = message;
+                    
+
+        }
+        function letterMatrix(){
+            let row = parseInt(document.letterMatrix.row.value);
+            let col = parseInt(document.letterMatrix.column.value);
+            let letters = "ABCDEFGHIJKLMNOPQRSTUVWSYZ";
+            let script = "";
+            
+            for(i = 0; i < row; i++){
+                for(j = 0; j < col; j++){
+                    script += letters.charAt(i);
+                }
+                script += "<br>"
+            }
+            document.getElementById("results").innerHTML = script;
+        }
+
+        function findTrainLocation(){
+            let trainASpeed = (parseFloat(document.trainTool.trainAspeed.value)/60);
+            let trainBSpeed = (parseFloat(document.trainTool.trainBspeed.value)/60);
+            let trainADistance = 0;
+            let trainBDistance = parseFloat(document.trainTool.distance.value);
+            let count = 0;
+            let script = "";
+            
+            do{
+                trainADistance += trainASpeed;
+                trainBDistance -= trainBSpeed
+                count++;
+                
+                    script += "Minute "+ count + " Train A Position: " + trainADistance.toFixed(2) 
+                + " miles Train B Position: " + trainBDistance.toFixed(2) + " miles<br>"; 
+
+            }while(trainADistance < trainBDistance);
+            document.getElementById("trainLocation").innerHTML = script;
+        }
+
+    </script>
+</head>
+<body>
+    
+    <h1>Jacqueline's Number Examination Tool</h1>
+    <form name="examTool" action="javascript:numberExamTool();">
+        <input type="submit" value="Click here to use the examination tool.">
+    </form>
+    <div id="numResult"></div>
+    <div id="averageTotal"></div>
+    <hr>
+
+    <h1>Jacqueline's The Letter Matrix</h1>
+    <form name="letterMatrix" action="javascript:letterMatrix();">
+        <label>Row Number:</label>
+        <input type="text" name="row">
+        <label>Column Number:</label>
+        <input type="text" name="column">
+        <input type="submit">
+    </form>
+    <pre id="results"></pre>
+    
+    <hr>
+    
+    <h1>Jacqueline's Two Trains Tool</h1>
+    <form name="trainTool" action="javascript:findTrainLocation();">
+        <label>Enter train A's speed (mph)</label>
+        <input type="text" name="trainAspeed">
+        <label>Enter train B's speed (mph)</label>
+        <input type="text" name="trainBspeed">
+        <label>Enter the distance between Eastford and Westford (miles)</label>
+        <input type="text" name="distance">
+        <p>
+        <input type="submit" value="Press here to calculate">
+    </p>
+    </form>
+    <div id="trainLocation"></div>
+
+    
+</body>
+</html>
