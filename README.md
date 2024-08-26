@@ -1,1 +1,2 @@
 # CSCI-3300-Web-Development-Projects
+These are assignments from my CSCI 3300 Web Development class in Spring 2024. They are far from perfect, but I wanted to show my works to the public. I have not perfected/editted the files after receiving grades, so there is likely to be mistakes in the code. I wanted to show that I can write clean and structured HTML, Vue.js, JavaScript, and CSS code. These are simple projects as well. Some images need to be included in different folders titled "images". 
